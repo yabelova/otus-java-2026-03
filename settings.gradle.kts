@@ -4,3 +4,6 @@ plugins {
 
 rootProject.name = "otus-java-2026-03"
 include("hw01-gradle")
+
+include("l02-gradle-logging")
+include("l02-lib")
