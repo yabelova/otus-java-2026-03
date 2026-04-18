@@ -1,8 +1,21 @@
 [libraries]
+junit-bom = "org.junit:junit-bom:5.10.0"
+mockito-bom = "org.mockito:mockito-bom:5.23.0"
+
 guava = "com.google.guava:guava:33.4.0-jre"
 slf4j = "org.slf4j:slf4j-api:2.0.17"
 logback = "ch.qos.logback:logback-classic:1.5.32"
 logstash = "net.logstash.logback:logstash-logback-encoder:7.4"
 
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
+junit-params = { group = "org.junit.jupiter", name = "junit-jupiter-params" }
+junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+mockito-core = { group = "org.mockito", name = "mockito-core" }
+mockito-junit = { group = "org.mockito", name = "mockito-junit-jupiter" }
+
 [plugins]
 shadow = "com.gradleup.shadow:9.4.1"
+
+[bundles]
+junit-api = ["junit-jupiter", "junit-params"]
+mockito-api = ["mockito-core", "mockito-junit"]

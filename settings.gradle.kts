@@ -7,3 +7,4 @@ include("hw01-gradle")
 
 include("l02-gradle-logging")
 include("l02-lib")
+include("l03-testing")
