@@ -9,6 +9,8 @@
 ### Assignments
 * **[HW01-gradle](./hw01-gradle)**  
 Project setup: Multi-module Gradle structure & external dependencies (Guava).
+* **[HW02-generics-collections](./hw02-generics-collections)**  
+Generics & Collections, verified with JUnit tests.
 * ...
 
 ---
@@ -16,3 +18,4 @@ Project setup: Multi-module Gradle structure & external dependencies (Guava).
 ### Tech Stack
 * Java 25
 * Gradle 9.4 (Kotlin DSL)
+* JUnit 5
