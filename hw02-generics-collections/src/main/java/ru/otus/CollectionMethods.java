@@ -4,19 +4,33 @@ import java.util.*;
 
 public class CollectionMethods {
 
-    // Task 1: Swap elements in generic array
+    /**
+     * Swaps two elements in a generic array.
+     *
+     * @throws ArrayIndexOutOfBoundsException if the indexes are invalid
+     * @throws NullPointerException           if the array is null
+     */
     public static <T> void arrayElementsSwap(T[] array, int index1, int index2) {
         T temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    // Task 2: Convert generic array to ArrayList
+    /**
+     * Converts a generic array to an ArrayList.
+     *
+     * @throws NullPointerException if the array is null
+     */
     public static <T> ArrayList<T> arrayToArrayList(T[] array) {
         return new ArrayList<>(Arrays.asList(array));
     }
 
-    // Task 3: Count words and frequency
+    /**
+     * Counts unique words and their frequency in the array.
+     *
+     * @return a map where keys are unique words and values are their counts
+     * @throws NullPointerException if the array is null
+     */
     public static Map<String, Integer> countWords(String[] array) {
         Map<String, Integer> map = new HashMap<>();
         for (String s : array) {

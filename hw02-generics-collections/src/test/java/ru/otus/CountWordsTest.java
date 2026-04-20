@@ -32,6 +32,17 @@ public class CountWordsTest implements TestData {
     }
 
     @Test
+    void should_count_array_with_null_element() {
+        String[] source = {"one", "two", null, null};
+
+        Map<String, Integer> result = CollectionMethods.countWords(source);
+        assertAll(
+                () -> assertEquals(3, result.size(), "The number of unique words (map size) should be 3"),
+                () -> assertEquals(2, result.get(null), "Null should appear 2 times")
+        );
+    }
+
+    @Test
     void should_throw_npe_for_null_array() {
         assertThrows(NullPointerException.class, () -> {
             CollectionMethods.countWords(null);
