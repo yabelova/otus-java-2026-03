@@ -1,5 +1,9 @@
 [libraries]
+junit-bom = "org.junit:junit-bom:5.10.0"
+
 guava = "com.google.guava:guava:33.4.0-jre"
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
+junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
 
 [plugins]
 shadow = "com.gradleup.shadow:9.4.1"

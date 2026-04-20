@@ -3,4 +3,6 @@ plugins {
 }
 
 rootProject.name = "otus-java-2026-03"
+
 include("hw01-gradle")
+include("hw02-generics-collections")
