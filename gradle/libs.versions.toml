@@ -1,3 +1,7 @@
+[versions]
+jmh-core = "1.37"
+
+
 [libraries]
 junit-bom = "org.junit:junit-bom:5.10.0"
 mockito-bom = "org.mockito:mockito-bom:5.23.0"
@@ -12,9 +16,14 @@ junit-params = { group = "org.junit.jupiter", name = "junit-jupiter-params" }
 junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
 mockito-core = { group = "org.mockito", name = "mockito-core" }
 mockito-junit = { group = "org.mockito", name = "mockito-junit-jupiter" }
+jmh-core = { group = "org.openjdk.jmh", name = "jmh-core", version.ref = "jmh-core" }
+jmh-annprocess = { group = "org.openjdk.jmh", name = "jmh-generator-annprocess", version.ref = "jmh-core" }
+
 
 [plugins]
 shadow = "com.gradleup.shadow:9.4.1"
+jmh = "me.champeau.jmh:0.7.3"
+
 
 [bundles]
 junit-api = ["junit-jupiter", "junit-params"]

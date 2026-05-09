@@ -9,6 +9,12 @@
 ### Assignments
 * **[HW01-gradle](./hw01-gradle)**  
 Project setup: Multi-module Gradle structure & external dependencies (Guava).
+* **[HW02-generics-collections](./hw02-generics-collections)**  
+Generics & Collections, verified with JUnit tests.
+* **[HW03-reflection](./hw03-reflection)**  
+Custom test framework with Reflection & Annotations.
+* **[HW04-gc](./hw04-gc)**  
+JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH.
 * ...
 
 ---
@@ -16,3 +22,5 @@ Project setup: Multi-module Gradle structure & external dependencies (Guava).
 ### Tech Stack
 * Java 25
 * Gradle 9.4 (Kotlin DSL)
+* JUnit 5
+* JMH 1.37
