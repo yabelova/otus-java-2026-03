@@ -117,8 +117,10 @@ To achieve these results, the following refactoring steps were taken:
 
 - **Eliminated Autoboxing**: `Integer` objects were replaced with primitive `int` types in the `Summator` and `Data`
   classes to remove the overhead of wrapper object creation.
-- **Object Reuse**: Instead of instantiating 500 million temporary `Data` objects, a single mutable instance was reused,
-  with its value updated via a setter.
+- **Object Reuse**: Instead of instantiating 500 million temporary `Data` objects, a single mutable instance was
+  reused.  
+  ⚠️ **Note**: This is an intentional trade-off. Although this object is added to the `listValues` collection, it is
+  safe because the list acts only as a counter (via `size()`) and is never used to retrieve individual elements.
 - **Collection Tuning**: The `ArrayList` in the `Summator` class was initialized with an `initialCapacity` of 100,000 to
   prevent expensive internal array resizing and data copying.
 - **Loop Logic Optimization**: The modulo operator (`%`) in the `CalcDemo` class was replaced with a simple counter in
