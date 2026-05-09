@@ -13,6 +13,8 @@ Project setup: Multi-module Gradle structure & external dependencies (Guava).
 Generics & Collections, verified with JUnit tests.
 * **[HW03-reflection](./hw03-reflection)**  
 Custom test framework with Reflection & Annotations.
+* **[HW04-gc](./hw04-gc)**  
+JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH.
 * ...
 
 ---
@@ -21,3 +23,4 @@ Custom test framework with Reflection & Annotations.
 * Java 25
 * Gradle 9.4 (Kotlin DSL)
 * JUnit 5
+* JMH 1.37
