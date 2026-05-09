@@ -19,9 +19,9 @@ and statistical accuracy.
 
 ## 3. Benchmark Results (Original vs. Optimized)
 
-![img01.png](main/resources/img01.png)
+![img01.png](img01.png)
 
-![img02.png](main/resources/img02.png)
+![img02.png](img02.png)
 
 ### Detailed Benchmark Results
 
