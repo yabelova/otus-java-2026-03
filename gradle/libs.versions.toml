@@ -1,9 +1,17 @@
+[versions]
+jmh-core = "1.37"
+
 [libraries]
 junit-bom = "org.junit:junit-bom:5.10.0"
 
 guava = "com.google.guava:guava:33.4.0-jre"
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
 junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+jmh-core = { group = "org.openjdk.jmh", name = "jmh-core", version.ref = "jmh-core" }
+jmh-annprocess = { group = "org.openjdk.jmh", name = "jmh-generator-annprocess", version.ref = "jmh-core" }
+slf4j = "org.slf4j:slf4j-api:2.0.17"
+logback = "ch.qos.logback:logback-classic:1.5.32"
 
 [plugins]
 shadow = "com.gradleup.shadow:9.4.1"
+jmh = "me.champeau.jmh:0.7.3"
