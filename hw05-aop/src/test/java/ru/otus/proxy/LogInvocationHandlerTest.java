@@ -17,7 +17,7 @@ class LogInvocationHandlerTest extends BaseStdoutTest {
         Method method = LoggableImpl.class.getMethod("orderPastry", int.class, int.class, String.class);
         handler.invoke(null, method, new Object[]{101, 2, "Croissant"});
 
-        assertTrue(out.toString().contains("[proxy] executed method: orderPastry, params: 101, 2, Croissant"));
+        assertTrue(out.toString().contains("[proxy] executed method: orderPastry, params: [101, 2, Croissant]"));
     }
 
     @Test

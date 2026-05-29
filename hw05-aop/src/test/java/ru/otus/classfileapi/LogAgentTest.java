@@ -8,15 +8,15 @@ import ru.otus.model.LoggableImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Tests only run with the agent active (property set by LogAgent.premain)
 @EnabledIfSystemProperty(named = "logging.agent.active", matches = "true")
-class LoggingAgentTest extends BaseStdoutTest {
+class LogAgentTest extends BaseStdoutTest {
 
     @Test
     void shouldLogWhenMethodHasLogByAgent() {
         Loggable cafe = new LoggableImpl();
         cafe.prepareTable(5, 3);
-
-        assertTrue(out.toString().contains("[agent] executed method: prepareTable, params: 5, 3"));
+        assertTrue(out.toString().contains("[agent] executed method: prepareTable, params: [5, 3]"));
     }
 
     @Test

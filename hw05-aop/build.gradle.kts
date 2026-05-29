@@ -18,7 +18,7 @@ application {
 
 tasks.jar {
     manifest {
-        attributes("Premain-Class" to "ru.otus.classfileapi.LoggingAgent")
+        attributes("Premain-Class" to "ru.otus.classfileapi.LogAgent")
     }
 }
 

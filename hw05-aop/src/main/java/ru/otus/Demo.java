@@ -6,7 +6,7 @@ import ru.otus.proxy.ProxyFactory;
 public class Demo {
     public static void main(String[] args) {
         Loggable cafe = ProxyFactory.createLoggable();
-
+        // Methods annotated with both @LogByProxy and @LogByAgent produce TWO log lines: [proxy] + [agent]
         cafe.sayHello();
         cafe.brewCoffee(7);
         cafe.prepareTable(5, 3);

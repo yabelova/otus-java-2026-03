@@ -6,6 +6,7 @@ import ru.otus.annotation.LogByProxy;
 public class LoggableImpl implements Loggable {
 
     @Override
+    // logged by both mechanisms when agent is active
     @LogByProxy
     @LogByAgent
     public void sayHello() {
@@ -31,6 +32,7 @@ public class LoggableImpl implements Loggable {
     }
 
     @Override
+    // logged by both mechanisms when agent is active
     @LogByProxy
     @LogByAgent
     public void orderPastry(int itemCode, int qty, String name) {
@@ -41,5 +43,4 @@ public class LoggableImpl implements Loggable {
     public void orderPastry(int itemCode, String name) {
         System.out.println("Order: " + name + " (code " + itemCode + ")\n");
     }
-
 }

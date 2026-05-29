@@ -6,13 +6,13 @@ import ru.otus.model.Loggable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LoggingProxyTest extends BaseStdoutTest {
+class LogProxyTest extends BaseStdoutTest {
 
     @Test
     void fullChainShouldLogAnnotatedMethod() {
         Loggable cafe = ProxyFactory.createLoggable();
         cafe.brewCoffee(5);
 
-        assertTrue(out.toString().contains("[proxy] executed method: brewCoffee, params: 5"));
+        assertTrue(out.toString().contains("[proxy] executed method: brewCoffee, params: [5]"));
     }
 }

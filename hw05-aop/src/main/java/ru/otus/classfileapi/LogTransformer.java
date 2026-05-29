@@ -7,12 +7,12 @@ import java.lang.constant.MethodTypeDesc;
 import java.lang.instrument.ClassFileTransformer;
 import java.security.ProtectionDomain;
 
-public class LoggingTransformer implements ClassFileTransformer {
+public class LogTransformer implements ClassFileTransformer {
 
     private static final String TARGET_CLASS = "ru/otus/model/LoggableImpl";
     private static final String LOG_BY_AGENT = "ru.otus.annotation.LogByAgent";
 
-    private static final ClassDesc LOGGING_HELPER = ClassDesc.of("ru.otus.logging.LoggingHelper");
+    private static final ClassDesc LOG_HELPER = ClassDesc.of("ru.otus.helpers.LogHelper");
     private static final String LOG_METHOD_NAME = "log";
     private static final MethodTypeDesc LOG_METHOD_TYPE = MethodTypeDesc.of(
             ConstantDescs.CD_void,
@@ -68,31 +68,31 @@ public class LoggingTransformer implements ClassFileTransformer {
         return (codeBuilder, codeElement) -> {
             if (!injected[0]) {
                 injected[0] = true;
-                injectLogging(codeBuilder, methodName, methodType);
+                injectLogCall(codeBuilder, methodName, methodType);
             }
             codeBuilder.with(codeElement);
         };
     }
 
-    private static void injectLogging(CodeBuilder code, String methodName, MethodTypeDesc methodType) {
+    private static void injectLogCall(CodeBuilder codeBuilder, String methodName, MethodTypeDesc methodType) {
         int paramCount = methodType.parameterCount();
 
-        code.ldc("[agent]");
-        code.ldc(methodName);
+        codeBuilder.ldc("[agent]");
+        codeBuilder.ldc(methodName);
 
-        code.bipush(paramCount)
+        codeBuilder.bipush(paramCount)
                 .anewarray(ConstantDescs.CD_Object);
 
         for (int i = 0; i < paramCount; i++) {
             ClassDesc paramType = methodType.parameterType(i);
-            code.dup().bipush(i).loadLocal(TypeKind.from(paramType), code.parameterSlot(i));
-            boxPrimitiveIfNeeded(code, paramType);
-            code.aastore();
+            codeBuilder.dup().bipush(i).loadLocal(TypeKind.from(paramType), codeBuilder.parameterSlot(i));
+            boxPrimitiveIfNeeded(codeBuilder, paramType);
+            codeBuilder.aastore();
         }
-        code.invokestatic(LOGGING_HELPER, LOG_METHOD_NAME, LOG_METHOD_TYPE);
+        codeBuilder.invokestatic(LOG_HELPER, LOG_METHOD_NAME, LOG_METHOD_TYPE);
     }
 
-    private static void boxPrimitiveIfNeeded(CodeBuilder cb, ClassDesc type) {
+    private static void boxPrimitiveIfNeeded(CodeBuilder codeBuilder, ClassDesc type) {
         if (!type.isPrimitive())
             return;
 
@@ -107,6 +107,6 @@ public class LoggingTransformer implements ClassFileTransformer {
             case "D" -> ClassDesc.of("java.lang.Double");
             default -> throw new IllegalArgumentException("Unknown primitive: " + type);
         };
-        cb.invokestatic(wrapper, "valueOf", MethodTypeDesc.of(wrapper, type));
+        codeBuilder.invokestatic(wrapper, "valueOf", MethodTypeDesc.of(wrapper, type));
     }
 }

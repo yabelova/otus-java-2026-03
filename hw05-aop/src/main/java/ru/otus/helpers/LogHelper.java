@@ -1,17 +1,19 @@
-package ru.otus.logging;
+package ru.otus.helpers;
 
 import java.util.Arrays;
 
-public class LoggingHelper {
+public class LogHelper {
 
-    private LoggingHelper() {
+    private LogHelper() {
     }
 
+    /**
+     * Prints {@code "{prefix} executed method: {name}, params: [...]"} to stdout.
+     */
     public static void log(String prefix, String methodName, Object... args) {
         StringBuilder sb = new StringBuilder(prefix).append(" executed method: ").append(methodName);
         if (args != null && args.length > 0) {
-            String s = Arrays.toString(args);
-            sb.append(", params: ").append(s, 1, s.length() - 1);
+            sb.append(", params: ").append(Arrays.toString(args));
         }
         System.out.println(sb);
     }
