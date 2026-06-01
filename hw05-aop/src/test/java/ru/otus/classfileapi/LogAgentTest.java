@@ -1,30 +1,29 @@
 package ru.otus.classfileapi;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import ru.otus.BaseStdoutTest;
 import ru.otus.model.Loggable;
 import ru.otus.model.LoggableImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Tests only run with the agent active (property set by LogAgent.premain)
-@EnabledIfSystemProperty(named = "logging.agent.active", matches = "true")
+@Tag("agent")
 class LogAgentTest extends BaseStdoutTest {
 
     @Test
-    void shouldLogWhenMethodHasLogByAgent() {
+    void shouldLogWhenMethodHasLog() {
         Loggable cafe = new LoggableImpl();
-        cafe.prepareTable(5, 3);
-        assertTrue(out.toString().contains("[agent] executed method: prepareTable, params: [5, 3]"));
+        cafe.brewCoffee(8);
+        assertTrue(out.toString().contains("[agent] executed method: brewCoffee, params: [8]"));
     }
 
     @Test
-    void shouldNotLogWhenMethodHasNoLogByAgent() {
+    void shouldNotLogWhenMethodHasNoLog() {
         Loggable cafe = new LoggableImpl();
-        cafe.brewCoffee(4);
+        cafe.addSugar(2, true);
 
-        assertFalse(out.toString().contains("[agent] executed method: brewCoffee"));
+        assertFalse(out.toString().contains("[agent] executed method: addSugar"));
     }
 
     @Test

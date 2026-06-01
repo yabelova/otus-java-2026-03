@@ -1,20 +1,19 @@
 package ru.otus.proxy;
 
 import ru.otus.model.Loggable;
-import ru.otus.model.LoggableImpl;
 
 import java.lang.reflect.Proxy;
 
 public class ProxyFactory {
     /**
-     * Creates a {@link ru.otus.model.Loggable} proxy that logs methods annotated with
-     * {@link ru.otus.annotation.LogByProxy @LogByProxy}.
+     * Creates a {@link Loggable} proxy that logs methods annotated with
+     * {@link ru.otus.annotation.Log @Log}.
      */
-    public static Loggable createLoggable() {
+    public static Loggable create(Loggable target) {
         return (Loggable) Proxy.newProxyInstance(
                 ProxyFactory.class.getClassLoader(),
                 new Class<?>[]{Loggable.class},
-                new LogInvocationHandler(new LoggableImpl())
+                new LogInvocationHandler(target)
         );
     }
 }

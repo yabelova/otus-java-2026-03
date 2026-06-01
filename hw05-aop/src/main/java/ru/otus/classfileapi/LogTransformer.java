@@ -10,7 +10,7 @@ import java.security.ProtectionDomain;
 public class LogTransformer implements ClassFileTransformer {
 
     private static final String TARGET_CLASS = "ru/otus/model/LoggableImpl";
-    private static final String LOG_BY_AGENT = "ru.otus.annotation.LogByAgent";
+    private static final String LOG_ANNOTATION = "ru.otus.annotation.Log";
 
     private static final ClassDesc LOG_HELPER = ClassDesc.of("ru.otus.helpers.LogHelper");
     private static final String LOG_METHOD_NAME = "log";
@@ -41,7 +41,7 @@ public class LogTransformer implements ClassFileTransformer {
         ClassModel classModel = classFile.parse(originalBytes);
 
         return classFile.transformClass(classModel, (classBuilder, classElement) -> {
-            if (classElement instanceof MethodModel methodModel && hasLogByAgentAnnotation(methodModel)) {
+            if (classElement instanceof MethodModel methodModel && hasLogAnnotation(methodModel)) {
 
                 String methodName = methodModel.methodName().stringValue();
                 MethodTypeDesc methodType = methodModel.methodTypeSymbol();
@@ -54,11 +54,11 @@ public class LogTransformer implements ClassFileTransformer {
         });
     }
 
-    private static boolean hasLogByAgentAnnotation(MethodModel method) {
+    private static boolean hasLogAnnotation(MethodModel method) {
         return method.findAttribute(Attributes.runtimeVisibleAnnotations())
                 .map(attr -> attr.annotations()
                         .stream()
-                        .anyMatch(a -> a.classSymbol().equals(ClassDesc.of(LOG_BY_AGENT))))
+                        .anyMatch(a -> a.classSymbol().equals(ClassDesc.of(LOG_ANNOTATION))))
                 .orElse(false);
     }
 

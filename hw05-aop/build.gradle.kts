@@ -1,4 +1,5 @@
 import org.gradle.api.tasks.JavaExec
+import org.gradle.api.tasks.testing.Test
 import org.gradle.process.JavaForkOptions
 
 plugins {
@@ -12,9 +13,16 @@ dependencies {
 }
 
 application {
-    mainClass = "ru.otus.Demo"
+    mainClass = "ru.otus.demo.ProxyDemo"
 }
 
+val runAgent by tasks.registering(JavaExec::class) {
+    group = "application"
+    description = "Run AgentDemo with javaagent"
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass = "ru.otus.demo.AgentDemo"
+    attachAgent()
+}
 
 tasks.jar {
     manifest {
@@ -22,15 +30,22 @@ tasks.jar {
     }
 }
 
-tasks.named<JavaExec>("run") {
-    attachAgent()
-}
-
 tasks.test {
-    useJUnitPlatform()
-    attachAgent()
+    useJUnitPlatform {
+        excludeTags("agent")
+    }
 }
 
+val testAgent by tasks.registering(Test::class) {
+    group = "verification"
+    description = "Runs agent tests with javaagent"
+    testClassesDirs = sourceSets.test.get().output.classesDirs
+    classpath = sourceSets.test.get().runtimeClasspath
+    useJUnitPlatform {
+        includeTags("agent")
+    }
+    attachAgent()
+}
 
 private fun Task.attachAgent() {
     val agentJar = tasks.jar.flatMap { it.archiveFile }

@@ -1,26 +1,17 @@
 package ru.otus.model;
 
-import ru.otus.annotation.LogByAgent;
-import ru.otus.annotation.LogByProxy;
+import ru.otus.annotation.Log;
 
 public class LoggableImpl implements Loggable {
 
     @Override
-    // logged by both mechanisms when agent is active
-    @LogByProxy
-    @LogByAgent
+    @Log
     public void sayHello() {
         System.out.println("Hello\n");
     }
 
     @Override
-    @LogByAgent
-    public void prepareTable(int tableNum, int guests) {
-        System.out.println("Table " + tableNum + " set for " + guests + "\n");
-    }
-
-    @Override
-    @LogByProxy
+    @Log
     public void brewCoffee(int strength) {
         System.out.println("Brewing coffee strength " + strength + "/10\n");
     }
@@ -32,9 +23,7 @@ public class LoggableImpl implements Loggable {
     }
 
     @Override
-    // logged by both mechanisms when agent is active
-    @LogByProxy
-    @LogByAgent
+    @Log
     public void orderPastry(int itemCode, int qty, String name) {
         System.out.println("Order: " + name + " x" + qty + " (code " + itemCode + ")\n");
     }

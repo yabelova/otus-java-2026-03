@@ -13,7 +13,7 @@ class LogInvocationHandlerTest extends BaseStdoutTest {
     private final LogInvocationHandler handler = new LogInvocationHandler(new LoggableImpl());
 
     @Test
-    void shouldLogWhenMethodHasLogByProxy() throws Throwable {
+    void shouldLogWhenMethodHasLog() throws Throwable {
         Method method = LoggableImpl.class.getMethod("orderPastry", int.class, int.class, String.class);
         handler.invoke(null, method, new Object[]{101, 2, "Croissant"});
 
@@ -21,11 +21,11 @@ class LogInvocationHandlerTest extends BaseStdoutTest {
     }
 
     @Test
-    void shouldNotLogWhenMethodHasNoLogByProxy() throws Throwable {
-        Method method = LoggableImpl.class.getMethod("prepareTable", int.class, int.class);
-        handler.invoke(null, method, new Object[]{2, 3});
+    void shouldNotLogWhenMethodHasNoLog() throws Throwable {
+        Method method = LoggableImpl.class.getMethod("addSugar", int.class, boolean.class);
+        handler.invoke(null, method, new Object[]{2, true});
 
-        assertFalse(out.toString().contains("[proxy] executed method: prepareTable"));
+        assertFalse(out.toString().contains("[proxy] executed method: addSugar"));
     }
 
     @Test

@@ -1,6 +1,6 @@
 package ru.otus.proxy;
 
-import ru.otus.annotation.LogByProxy;
+import ru.otus.annotation.Log;
 import ru.otus.helpers.LogHelper;
 import ru.otus.model.Loggable;
 
@@ -19,7 +19,7 @@ public class LogInvocationHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         Method targetMethod = target.getClass().getMethod(method.getName(), method.getParameterTypes());
-        boolean isLogged = targetMethod.isAnnotationPresent(LogByProxy.class);
+        boolean isLogged = targetMethod.isAnnotationPresent(Log.class);
 
         if (isLogged) {
             LogHelper.log("[proxy]", method.getName(), args);
