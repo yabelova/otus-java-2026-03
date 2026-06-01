@@ -15,6 +15,8 @@ Generics & Collections, verified with JUnit tests.
 Custom test framework with Reflection & Annotations.
 * **[HW04-gc](./hw04-gc)**  
 JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH.
+* **[HW05-aop](./hw05-aop)**  
+AOP method logging via proxy and agent with ClassFile API.
 * ...
 
 ---
