@@ -11,6 +11,8 @@ jmh-core = { group = "org.openjdk.jmh", name = "jmh-core", version.ref = "jmh-co
 jmh-annprocess = { group = "org.openjdk.jmh", name = "jmh-generator-annprocess", version.ref = "jmh-core" }
 slf4j = "org.slf4j:slf4j-api:2.0.17"
 logback = "ch.qos.logback:logback-classic:1.5.32"
+jackson-databind = "com.fasterxml.jackson.core:jackson-databind:2.18.3"
+assertj = "org.assertj:assertj-core:3.27.3"
 
 [plugins]
 shadow = "com.gradleup.shadow:9.4.1"
