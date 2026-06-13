@@ -17,6 +17,8 @@ Custom test framework with Reflection & Annotations.
 JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH.
 * **[HW05-aop](./hw05-aop)**  
 AOP method logging via proxy and agent with ClassFile API.
+* **[HW08-io](./hw08-io)**  
+JSON file processing with I/O streams and Jackson.
 * ...
 
 ---
