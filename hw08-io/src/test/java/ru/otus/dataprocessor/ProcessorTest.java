@@ -20,7 +20,6 @@ class ProcessorTest {
     @Test
     @DisplayName("Из файла читается json, обрабатывается, результат сериализуется в строку")
     void processingTest(@TempDir Path tempDir) throws IOException {
-        System.out.println(tempDir);
 
         // given
         var inputDataFileName = "inputData.json";

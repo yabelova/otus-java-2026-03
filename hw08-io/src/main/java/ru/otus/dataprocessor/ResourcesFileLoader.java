@@ -11,6 +11,7 @@ import ru.otus.model.Measurement;
 
 public class ResourcesFileLoader implements Loader {
 
+    private final ObjectMapper mapper = new ObjectMapper();
     private final String fileName;
 
     public ResourcesFileLoader(String fileName) {
@@ -20,14 +21,13 @@ public class ResourcesFileLoader implements Loader {
     @Override
     public List<Measurement> load() {
         // читает файл, парсит и возвращает результат
-        ObjectMapper mapper = new ObjectMapper();
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName)) {
             if (inputStream == null) {
                 throw new FileProcessException("File not found: " + fileName);
             }
             return mapper.readValue(inputStream, new TypeReference<List<Measurement>>() { });
         } catch (IOException e) {
-            throw new FileProcessException(e);
+            throw new FileProcessException("Failed to load file: " + fileName, e);
         }
     }
 }

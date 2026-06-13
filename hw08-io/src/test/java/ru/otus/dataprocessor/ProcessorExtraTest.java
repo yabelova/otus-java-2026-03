@@ -30,7 +30,7 @@ class ProcessorExtraTest {
         @DisplayName("should throw FileProcessException when file not found")
         void loadFileNotFound() {
             var loader = new ResourcesFileLoader("nonexistent.json");
-            assertThatThrownBy(loader::load)
+            assertThatThrownBy(() -> loader.load())
                     .isInstanceOf(FileProcessException.class)
                     .hasMessage("File not found: nonexistent.json");
         }
@@ -39,8 +39,9 @@ class ProcessorExtraTest {
         @DisplayName("should throw FileProcessException when JSON is malformed")
         void loadBrokenJson() {
             var loader = new ResourcesFileLoader("broken.json");
-            assertThatThrownBy(loader::load)
+            assertThatThrownBy(() -> loader.load())
                     .isInstanceOf(FileProcessException.class)
+                    .hasMessage("Failed to load file: broken.json")
                     .cause().isInstanceOf(IOException.class);
         }
 
@@ -113,7 +114,8 @@ class ProcessorExtraTest {
         void serializeInvalidPath() {
             var serializer = new FileSerializer(":\0invalid/path");
             assertThatThrownBy(() -> serializer.serialize(Map.of("x", 1.0)))
-                    .isInstanceOf(FileProcessException.class);
+                    .isInstanceOf(FileProcessException.class)
+                    .hasMessage("Failed to write file: :\0invalid/path");
         }
     }
 }

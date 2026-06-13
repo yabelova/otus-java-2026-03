@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class FileSerializer implements Serializer {
 
+    private final ObjectMapper mapper = new ObjectMapper();
     private final String fileName;
 
     public FileSerializer(String fileName) {
@@ -20,11 +21,10 @@ public class FileSerializer implements Serializer {
     public void serialize(Map<String, Double> data) {
         // формирует результирующий json и сохраняет его в файл
         Objects.requireNonNull(data, "data must not be null");
-        ObjectMapper mapper = new ObjectMapper();
         try (OutputStream outputStream = new FileOutputStream(fileName)) {
             mapper.writeValue(outputStream, data);
         } catch (IOException e) {
-            throw new FileProcessException(e);
+            throw new FileProcessException("Failed to write file: " + fileName, e);
         }
     }
 }
