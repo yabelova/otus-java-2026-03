@@ -18,7 +18,7 @@ JVM Garbage Collection performance study and code optimization, verified with JU
 * **[HW05-aop](./hw05-aop)**  
 AOP method logging via proxy and agent with ClassFile API.
 * **[HW08-io](./hw08-io)**  
-I/O..
+JSON file processing with I/O streams and Jackson.
 * ...
 
 ---

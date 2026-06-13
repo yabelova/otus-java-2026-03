@@ -1,5 +1,4 @@
 dependencies {
-    runtimeOnly(libs.logback)
     implementation(libs.jackson.databind)
 
     testImplementation(platform(libs.junit.bom))
