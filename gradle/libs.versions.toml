@@ -1,6 +1,7 @@
 [versions]
 jmh-core = "1.37"
 flyway = "12.6.2"
+testcontainers = "1.21.4"
 
 [libraries]
 junit-bom = "org.junit:junit-bom:5.11.4"
@@ -9,6 +10,7 @@ assertj = "org.assertj:assertj-core:3.27.7"
 flyway-core = { group = "org.flywaydb", name = "flyway-core", version.ref = "flyway" }
 flyway-postgresql = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
 guava = "com.google.guava:guava:33.4.0-jre"
+hibernate-core = "org.hibernate.orm:hibernate-core:7.4.3.Final"
 hikari = "com.zaxxer:HikariCP:7.0.2"
 jackson-databind = "com.fasterxml.jackson.core:jackson-databind:2.18.3"
 jmh-annprocess = { group = "org.openjdk.jmh", name = "jmh-generator-annprocess", version.ref = "jmh-core" }
@@ -16,9 +18,12 @@ jmh-core = { group = "org.openjdk.jmh", name = "jmh-core", version.ref = "jmh-co
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
 junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
 logback = "ch.qos.logback:logback-classic:1.5.32"
+lombok = "org.projectlombok:lombok:1.18.38"
 mockito = { group = "org.mockito", name = "mockito-junit-jupiter", version = "5.23.0" }
 postgresql = "org.postgresql:postgresql:42.7.10"
 slf4j = "org.slf4j:slf4j-api:2.0.17"
+testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
+testcontainers-postgresql = { group = "org.testcontainers", name = "postgresql", version.ref = "testcontainers" }
 
 [plugins]
 jmh = "me.champeau.jmh:0.7.3"

@@ -21,6 +21,8 @@ AOP method logging via proxy and agent with ClassFile API.
 JSON file processing with I/O streams and Jackson.
 * **[HW09-jdbc](./hw09-jdbc)**  
 ORM over JDBC with reflection-based mapping.
+* **[HW10-hibernate](./hw10-hibernate)**  
+Hibernate mapping with cascading relationships.
 * ...
 
 ---
