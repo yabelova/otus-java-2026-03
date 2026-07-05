@@ -36,6 +36,7 @@ class HibernateTest {
     @BeforeEach
     void setUp() {
         var props = new Properties();
+        props.setProperty("hibernate.default_schema", "hw10");
         props.setProperty("hibernate.connection.url", container.getJdbcUrl());
         props.setProperty("hibernate.connection.username", container.getUsername());
         props.setProperty("hibernate.connection.password", container.getPassword());
@@ -52,7 +53,7 @@ class HibernateTest {
     void shouldCreateOnlyThreeTables() {
         doInSessionWithTransaction(sf, session -> session.doWork(connection -> {
             var rs = connection.getMetaData()
-                    .getTables(null, "public", "%", new String[]{"TABLE"});
+                    .getTables(null, "hw10", "%", new String[]{"TABLE"});
             var tables = new java.util.ArrayList<String>();
             while (rs.next()) {
                 tables.add(rs.getString("TABLE_NAME").toLowerCase());

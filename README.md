@@ -23,6 +23,8 @@ JSON file processing with I/O streams and Jackson.
 ORM over JDBC with reflection-based mapping.
 * **[HW10-hibernate](./hw10-hibernate)**  
 Hibernate mapping with cascading relationships.
+* **[HW11-cache](./hw11-cache)**  
+Custom cache engine with WeakHashMap.
 * ...
 
 ---

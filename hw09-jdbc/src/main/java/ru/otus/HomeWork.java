@@ -33,7 +33,7 @@ public class HomeWork {
 
     public static void main(String[] args) {
         // Общая часть
-        var dataSource = new DriverManagerDataSource(URL, USER, PASSWORD);
+        var dataSource = new DriverManagerDataSource(URL, USER, PASSWORD, "hw09");
         flywayMigrations(dataSource);
         var transactionRunner = new TransactionRunnerJdbc(dataSource);
         var dbExecutor = new DbExecutorImpl();
@@ -75,6 +75,8 @@ public class HomeWork {
         var flyway = Flyway.configure()
                 .dataSource(dataSource)
                 .locations("classpath:/db/migration")
+                .schemas("hw09")
+                .defaultSchema("hw09")
                 .load();
         flyway.migrate();
         log.info("db migration finished.");
