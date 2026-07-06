@@ -1,0 +1,3 @@
+<configuration>
+    <logger name="ru.otus.service" level="WARN"/>
+</configuration>
