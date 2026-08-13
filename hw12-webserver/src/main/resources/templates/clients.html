@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Clients</title>
+</head>
+<body>
+<div style="text-align: right">
+    <a href="/logout">Logout</a>
+</div>
+<h4>Clients list</h4>
+<table style="width: 800px">
+    <thead>
+        <tr>
+            <td style="width: 60px">Id</td>
+            <td style="width: 180px">Name</td>
+            <td style="width: 280px">Address</td>
+            <td style="width: 280px">Phones</td>
+        </tr>
+    </thead>
+    <tbody>
+        <#list clients as client>
+        <tr>
+            <td>${client.id}</td>
+            <td>${client.name}</td>
+            <td>${client.address.street}</td>
+            <td>
+                <#list client.phones as phone>
+                    <div>${phone.number}</div>
+                </#list>
+            </td>
+        </tr>
+        </#list>
+    </tbody>
+</table>
+
+<#if isAdmin>
+<br/><br/>
+<h4>Create client</h4>
+<form action="/clients" method="post">
+    <label>
+        Name <br/>
+        <input type="text" name="name" value="" size="50">
+    </label>
+    <br/>
+    <label>
+        Address <br/>
+        <input type="text" name="address" value="" size="50">
+    </label>
+    <br/>
+    <label>
+        Phones (comma separated) <br/>
+        <input type="text" name="phones" value="" size="50">
+    </label>
+    <br/><br/>
+    <input type="submit" value="Create">
+</form>
+</#if>
+</body>
+</html>

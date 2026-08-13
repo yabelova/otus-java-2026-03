@@ -25,6 +25,8 @@ ORM over JDBC with reflection-based mapping.
 Hibernate mapping with cascading relationships.
 * **[HW11-cache](./hw11-cache)**  
 Custom cache engine with WeakHashMap.
+* **[HW12-webserver](./hw12-webserver)**  
+Jetty web-server with role-based auth (login/logout) and client management.
 * ...
 
 ---
