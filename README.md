@@ -8,23 +8,25 @@
 
 ### Assignments
 * **[HW01-gradle](./hw01-gradle)**  
-Project setup: Multi-module Gradle structure & external dependencies (Guava).
+Project setup: Multi-module Gradle structure & external dependencies (Guava)
 * **[HW02-generics-collections](./hw02-generics-collections)**  
-Generics & Collections, verified with JUnit tests.
+Generics & Collections, verified with JUnit tests
 * **[HW03-reflection](./hw03-reflection)**  
-Custom test framework with Reflection & Annotations.
+Custom test framework with Reflection & Annotations
 * **[HW04-gc](./hw04-gc)**  
-JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH.
+JVM Garbage Collection performance study and code optimization, verified with JUnit and measured with JMH
 * **[HW05-aop](./hw05-aop)**  
-AOP method logging via proxy and agent with ClassFile API.
+AOP method logging via proxy and agent with ClassFile API
 * **[HW08-io](./hw08-io)**  
-JSON file processing with I/O streams and Jackson.
+JSON file processing with I/O streams and Jackson
 * **[HW09-jdbc](./hw09-jdbc)**  
-ORM over JDBC with reflection-based mapping.
+ORM over JDBC with reflection-based mapping
 * **[HW10-hibernate](./hw10-hibernate)**  
-Hibernate mapping with cascading relationships.
+Hibernate mapping with cascading relationships
 * **[HW11-cache](./hw11-cache)**  
-Custom cache engine with WeakHashMap.
+Custom cache engine with WeakHashMap
+* **[HW13-di](./hw13-di)**  
+Own IoC container with annotation-based configuration
 * ...
 
 ---
