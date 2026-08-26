@@ -62,8 +62,10 @@ public class AppComponentsContainerImpl implements AppComponentsContainer {
                 throw new AppComponentsContainerException("Cannot invoke method: " + method.getName(), e);
             }
 
-            appComponents.add(bean);
-            appComponentsByName.put(name, bean);
+            if (bean != null) {
+                appComponents.add(bean);
+                appComponentsByName.put(name, bean);
+            }
         }
     }
 
