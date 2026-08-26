@@ -25,6 +25,7 @@ logback = "ch.qos.logback:logback-classic:1.5.32"
 lombok = "org.projectlombok:lombok:1.18.38"
 mockito = { group = "org.mockito", name = "mockito-junit-jupiter", version = "5.23.0" }
 postgresql = "org.postgresql:postgresql:42.7.10"
+reflections = "org.reflections:reflections:0.10.2"
 slf4j = "org.slf4j:slf4j-api:2.0.17"
 testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
 testcontainers-postgresql = { group = "org.testcontainers", name = "postgresql", version.ref = "testcontainers" }
