@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: hw14-spring-data-jdbc
+  datasource:
+    url: jdbc:postgresql://localhost:5430/demoDB
+    username: usr
+    password: pwd
+    hikari:
+      schema: hw14
+  flyway:
+    schemas: hw14
+    default-schema: hw14
+    create-schemas: true

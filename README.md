@@ -30,6 +30,8 @@
   Jetty web-server with role-based auth (login/logout) and client management
 * **[HW13-di](./hw13-di)**  
   Own IoC container with annotation-based configuration
+* **[HW14-spring-data-jdbc](./hw14-spring-data-jdbc)**  
+  Spring web-app using Spring Data JDBC
 * ...
 
 ---
