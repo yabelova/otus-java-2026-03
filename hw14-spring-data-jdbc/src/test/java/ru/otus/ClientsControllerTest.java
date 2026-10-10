@@ -129,6 +129,17 @@ class ClientsControllerTest extends AbstractIntegrationTest {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    @DisplayName("reject a create request with a blank name")
+    void shouldRejectCreateWithBlankName() throws Exception {
+        mockMvc.perform(post("/clients")
+                        .param("name", "   ")
+                        .param("address", "Asgard")
+                        .param("phones", "+1 (212) 970-4133"))
+                .andExpect(status().isBadRequest())
+                .andExpect(status().reason(containsString("must not be blank")));
+    }
+
     private int count(String table) {
         return jdbc.queryForObject("SELECT count(*) FROM " + table, Integer.class);
     }
