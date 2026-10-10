@@ -32,6 +32,8 @@
   Own IoC container with annotation-based configuration
 * **[HW14-spring-data-jdbc](./hw14-spring-data-jdbc)**  
   Spring web-app using Spring Data JDBC
+* **[HW15-thread-coordination](./hw15-thread-coordination)**  
+  Thread coordination: two threads printing numbers with synchronization
 * ...
 
 ---
