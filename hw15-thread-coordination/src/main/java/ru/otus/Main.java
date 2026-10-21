@@ -19,11 +19,16 @@ public class Main {
         if (args.length == 0) {
             return DEFAULT_MAX_CYCLES;
         }
+        int maxCycles;
         try {
-            return Integer.parseInt(args[0]);
+            maxCycles = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
-            System.out.printf("Invalid argument \"%s\", using default: %d%n\n", args[0], DEFAULT_MAX_CYCLES);
-            return DEFAULT_MAX_CYCLES;
+            maxCycles = 0;
         }
+        if (maxCycles <= 0) {
+            System.out.printf("Invalid maxCycles \"%s\": must be a positive integer%n%n", args[0]);
+            System.exit(1);
+        }
+        return maxCycles;
     }
 }

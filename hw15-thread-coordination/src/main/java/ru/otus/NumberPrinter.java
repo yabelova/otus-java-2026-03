@@ -16,7 +16,7 @@ public class NumberPrinter {
     public void print(int threadId, String threadName) {
         synchronized (monitor) {
             while (cyclesDone < maxCycles) {
-                while (turn != threadId) {
+                while (turn != threadId && cyclesDone < maxCycles) {
                     try {
                         monitor.wait();
                     } catch (InterruptedException e) {
