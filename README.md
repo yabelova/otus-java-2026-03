@@ -34,6 +34,8 @@
   Spring web-app using Spring Data JDBC
 * **[HW15-thread-coordination](./hw15-thread-coordination)**  
   Thread coordination: two threads printing numbers with synchronization
+* **[HW16-queues](./hw16-queues)**  
+  Thread-safe queue-based batch processing
 * ...
 
 ---
