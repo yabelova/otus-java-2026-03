@@ -36,6 +36,8 @@
   Thread coordination: two threads printing numbers with synchronization
 * **[HW16-queues](./hw16-queues)**  
   Thread-safe queue-based batch processing
+* **[HW17-grpc](./hw17-grpc)**
+  gRPC client-server example with server-streaming responses
 * ...
 
 ---

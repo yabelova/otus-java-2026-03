@@ -3,6 +3,8 @@ flyway = "12.6.2"
 jetty = "12.0.16"
 jmh-core = "1.37"
 testcontainers = "1.21.4"
+grpc = "1.85.1"
+protobuf = "3.25.9"
 
 [libraries]
 junit-bom = "org.junit:junit-bom:5.11.4"
@@ -28,6 +30,10 @@ jmh-annprocess = { group = "org.openjdk.jmh", name = "jmh-generator-annprocess",
 jmh-core = { group = "org.openjdk.jmh", name = "jmh-core", version.ref = "jmh-core" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter" }
 junit-launcher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+grpc-netty = { group = "io.grpc", name = "grpc-netty", version.ref = "grpc" }
+grpc-protobuf = { group = "io.grpc", name = "grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { group = "io.grpc", name = "grpc-stub", version.ref = "grpc" }
+protobuf-java = { group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf" }
 logback = "ch.qos.logback:logback-classic:1.5.32"
 lombok = "org.projectlombok:lombok:1.18.38"
 mockito = { group = "org.mockito", name = "mockito-junit-jupiter", version = "5.23.0" }
@@ -42,3 +48,4 @@ jmh = "me.champeau.jmh:0.7.3"
 shadow = "com.gradleup.shadow:9.4.1"
 spring-boot = { id = "org.springframework.boot", version = "4.1.1" }
 spring-dependencyManagement = { id = "io.spring.dependency-management", version = "1.1.7" }
+protobuf = { id = "com.google.protobuf", version = "0.9.4" }
